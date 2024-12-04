@@ -4,7 +4,7 @@ import { FaSearch } from "react-icons/fa";
 export default function Navbar() {
     
     return (
-    <div className="flex justify-between items-center p-2 pb-5">
+    <div className="flex justify-between items-center p-2 pb-2">
         {/* Navigation Links */}
         <ul className="flex space-x-12 text-base font-semibold">
         <li className="hover:text-gray-300 cursor-pointer">Music</li>

@@ -1,6 +1,5 @@
 import React from 'react'
 import Navbar from './Navbar'
-import { FaSearch, FaCheckCircle, FaMusic } from "react-icons/fa";
 
 function MainPage() {
   const tracks = [
@@ -45,72 +44,64 @@ function MainPage() {
       album: "Off The Wall",
       img: "https://via.placeholder.com/50",
     },
-];
+  ];
   return (
-    <div className="h-full bg-gradient-to-b from-red-900 to-black text-white px-24 py-8 flex flex-col">
+    <div className="h-full bg-gradient-to-b from-red-900 to-black text-white px-6 sm:px-10 lg:px-24 py-3 flex flex-col">
       <Navbar></Navbar>
-      <div className=" text-white shadow-md">
-      {/* Artist Section */}
-      <div className="flex items-center space-x-6 mb-8">
+      <div className="text-white shadow-md">
+        {/* Artist Image */}
         <img
-          src="https://via.placeholder.com/300x200" // Replace with real image URL
+          src="../../public/Artist.png"
           alt="Michael Jackson"
-          className="w-80 h-48 rounded-lg object-cover"
+          className="w-full max-w-4xl h-auto mx-auto mb-6 rounded-lg"
         />
+
+        {/* Popular Section */}
         <div>
-          <div className="flex items-center space-x-2 mb-2">
-            <FaCheckCircle className="text-blue-500" />
-            <span className="text-sm text-gray-400">Verified Artist</span>
+          <div className="flex flex-col sm:flex-row justify-between items-center mb-4">
+            <h2 className="text-xl sm:text-2xl font-semibold mb-2 sm:mb-0">Popular</h2>
+            <button className="text-sm text-gray-400 hover:text-gray-300">See All</button>
           </div>
-          <h1 className="text-4xl font-bold">Michael Jackson</h1>
-          <p className="text-gray-400 text-sm">27.852.501 monthly listeners</p>
+
+          {/* Table */}
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm text-left">
+              <thead>
+                <tr className="border-b border-gray-600">
+                  <th className="py-2">#</th>
+                  <th className="py-2 px-6 lg:px-20">TITLE</th>
+                  <th className="py-2">PLAYING</th>
+                  <th className="py-2">TIME</th>
+                  <th className="py-2 px-4 lg:px-10">ALBUM</th>
+                </tr>
+              </thead>
+              <tbody>
+                {tracks.map((track, index) => (
+                  <tr
+                    key={track.id}
+                    className={`${
+                      track.isPlaying ? "bg-red-800" : ""
+                    } hover:bg-red-700 cursor-pointer`}
+                  >
+                    <td className="py-2 px-2">{index + 1}</td>
+                    <td className="py-2 flex items-center space-x-2 sm:space-x-4">
+                      <img
+                        src={track.img}
+                        alt={track.title}
+                        className="w-8 h-8 sm:w-10 sm:h-10 rounded"
+                      />
+                      <span className="truncate">{track.title}</span>
+                    </td>
+                    <td className="py-2">{track.playing}</td>
+                    <td className="py-2">{track.time}</td>
+                    <td className="py-2 truncate px-2 lg:px-4">{track.album}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
-
-      {/* Popular Section */}
-      <div>
-        <div className="flex justify-between items-center mb-4">
-          <h2 className="text-2xl font-semibold">Popular</h2>
-          <button className="text-sm text-gray-400 hover:text-gray-300">See All</button>
-        </div>
-
-        {/* Table */}
-        <table className="w-full text-sm text-left">
-          <thead>
-            <tr className="border-b border-gray-600">
-              <th className="py-2">#</th>
-              <th className="py-2 px-20">TITLE</th>
-              <th className="py-2">PLAYING</th>
-              <th className="py-2">TIME</th>
-              <th className="py-2 px-10">ALBUM</th>
-            </tr>
-          </thead>
-          <tbody>
-            {tracks.map((track, index) => (
-              <tr
-                key={track.id}
-                className={`${
-                  track.isPlaying ? "bg-red-800" : ""
-                } hover:bg-red-700 cursor-pointer`}
-              >
-                <td className="py-2 px-2">{index + 1}</td>
-                <td className="py-2 flex items-center space-x-4">
-                  <img
-                    src={track.img}
-                    alt={track.title}
-                    className="w-10 h-10 rounded"
-                  />
-                  <span>{track.title}</span>
-                </td>
-                <td className="py-2">{track.playing}</td>
-                <td className="py-2">{track.time}</td>
-                <td className="py-2 truncate">{track.album}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-    </div>
     </div>
   )
 }
