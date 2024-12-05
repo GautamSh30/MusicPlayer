@@ -1,9 +1,43 @@
+
+
 import React from 'react';
 import Navbar from './Navbar';
 
 function MainPage() {
   const tracks = [
-    // ... Track data as provided
+    {
+      id: 1,
+      title: "Billie Jean",
+      playing: "1.040.811.084",
+      time: "4:53",
+      album: "Thriller 25 Super Deluxe",
+      img: "https://via.placeholder.com/50", // Replace with real image URL
+    },
+    {
+      id: 2,
+      title: "Beat It",
+      playing: "643.786.045",
+      time: "4:18",
+      album: "Thriller 25 Super Deluxe",
+      img: "https://via.placeholder.com/50",
+      isPlaying: true, // Indicates currently playing track
+    },
+    {
+      id: 3,
+      title: "Smooth Criminal - 2012 Remaster",
+      playing: "407.234.004",
+      time: "4:17",
+      album: "Thriller 25 Super Deluxe",
+      img: "https://via.placeholder.com/50",
+    },
+    {
+      id: 4,
+      title: "Don't Stop 'Til You Get Enough",
+      playing: "316.391.952",
+      time: "6:05",
+      album: "Bad 25th Anniversary",
+      img: "https://via.placeholder.com/50",
+    },
   ];
 
   return (
