@@ -51,7 +51,7 @@ function MainPage() {
       <div className="text-white shadow-md">
         {/* Artist Image */}
         <img
-          src="../../public/Artist.png"
+          src="/Artist.png"
           alt="Michael Jackson"
           className="w-full max-w-4xl h-auto mx-auto mb-6 rounded-lg"
         />
